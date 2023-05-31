@@ -1,5 +1,15 @@
 body {
   font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  max-width: 500px; /* Ajuste o valor conforme necessário */
+  width: 100%;
 }
 
 h1, h2 {
@@ -40,4 +50,8 @@ table th, table td {
 table th {
   background-color: #f2f2f2;
   font-weight: bold;
+}
+body {
+  background-color: rgb(139, 225, 225);
+  
 }
