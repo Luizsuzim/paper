@@ -1,13 +1,5 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = ""; // Insira sua senha do banco de dados aqui
-$dbname = "biblioteca";
-
-$conn = new mysqli($servername, $username, $password, $dbname);
-if ($conn->connect_error) {
-   die("Connection failed: " . $conn->connect_error);
-}
+require_once('conexao.php');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
    $titulo = $_POST['titulo'];
