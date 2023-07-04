@@ -3,27 +3,27 @@ document.addEventListener('DOMContentLoaded', function() {
     const searchForm = document.getElementById('searchForm');
     const showAllButton = document.getElementById('showAllButton');
     const livrosTable = document.getElementById('livrosTable');
- 
+
     addForm.addEventListener('submit', function(event) {
         event.preventDefault();
         const titulo = document.getElementById('titulo').value;
         const autor = document.getElementById('autor').value;
         const ano = document.getElementById('ano').value;
- 
+
         adicionarLivro(titulo, autor, ano);
     });
- 
+
     searchForm.addEventListener('submit', function(event) {
         event.preventDefault();
         const searchInput = document.getElementById('searchInput').value;
- 
+
         pesquisarLivro(searchInput);
     });
- 
+
     showAllButton.addEventListener('click', function() {
         mostrarTodosLivros();
     });
- 
+
     function adicionarLivro(titulo, autor, ano) {
         const xhr = new XMLHttpRequest();
         xhr.open('POST', 'adicionar_livro.php', true);
@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
         };
         xhr.send(`titulo=${titulo}&autor=${autor}&ano=${ano}`);
     }
-    
+
     function pesquisarLivro(searchInput) {
         const xhr = new XMLHttpRequest();
         xhr.open('GET', `pesquisar_livro.php?search=${searchInput}`, true);
@@ -49,10 +49,7 @@ document.addEventListener('DOMContentLoaded', function() {
         };
         xhr.send();
     }
-    
- 
-    
- 
+
     function mostrarTodosLivros() {
         const xhr = new XMLHttpRequest();
         xhr.open('GET', 'todos_livros.php', true);
@@ -63,8 +60,9 @@ document.addEventListener('DOMContentLoaded', function() {
         };
         xhr.send();
     }
- });
- function excluirLivro(id) {
+});
+
+function excluirLivro(id) {
     const xhr = new XMLHttpRequest();
     xhr.open('GET', `excluir_livro.php?id=${id}`, true);
     xhr.onload = function() {
@@ -74,4 +72,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     };
     xhr.send();
+}
+
+function editarLivro(id) {
+    window.location.href = `editar_livro.php?id=${id}`;
 }

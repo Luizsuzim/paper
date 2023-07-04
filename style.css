@@ -25,7 +25,7 @@ label {
 }
 
 input[type="text"], input[type="number"] {
-  width: 200px;
+  width: 100%; /* Alteração: Ocupa 100% da largura disponível */
   padding: 5px;
 }
 
@@ -51,13 +51,42 @@ table th {
   background-color: #f2f2f2;
   font-weight: bold;
 }
+
 body {
   background-color: rgb(139, 225, 225);
-  
 }
-#bibli{
+
+#bibli {
   background-color: #f2f2f2;
   color: #333;
   padding: 20px;
-  
+}
+
+#editarForm {
+  background-color: rgb(139, 225, 225);
+}
+
+/* Estilos para dispositivos de tela pequena */
+@media only screen and (max-width: 600px) {
+  body {
+    font-size: 14px;
+  }
+
+  .container {
+    max-width: 100%; /* Ocupa 100% da largura disponível */
+  }
+}
+
+/* Estilos para dispositivos de tela média */
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+  body {
+    font-size: 16px;
+  }
+}
+
+/* Estilos para dispositivos de tela grande */
+@media only screen and (min-width: 1025px) {
+  body {
+    font-size: 18px;
+  }
 }

@@ -1,14 +1,5 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "biblioteca";
-
-$conn = new mysqli($servername, $username, $password, $dbname);
-if ($conn->connect_error) {
-   die("Connection failed: " . $conn->connect_error);
-}
-
+require_once('conexao.php');
 $sql = "SELECT * FROM livros";
 $result = $conn->query($sql);
 
@@ -21,14 +12,18 @@ if ($result->num_rows > 0) {
            <th>Ação</th>
        </tr>';
 
-   while ($row = $result->fetch_assoc()) {
-       echo '<tr>
-           <td>' . $row['titulo'] . '</td>
-           <td>' . $row['autor'] . '</td>
-           <td>' . $row['ano_publicacao'] . '</td>
-           <td><button onclick="excluirLivro(' . $row['id'] . ')">Excluir</button></td>
-       </tr>';
-   }
+       while ($row = $result->fetch_assoc()) {
+        echo '<tr>
+            <td>' . $row['titulo'] . '</td>
+            <td>' . $row['autor'] . '</td>
+            <td>' . $row['ano_publicacao'] . '</td>
+            <td>
+                <button onclick="editarLivro(' . $row['id'] . ')">Editar</button>
+                <button onclick="excluirLivro(' . $row['id'] . ')">Excluir</button>
+            </td>
+        </tr>';
+    }
+    
 
    echo '</table>';
 } else {

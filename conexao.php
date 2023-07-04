@@ -1,7 +1,7 @@
 <?php
 $servername = "localhost";
 $username = "root";
-$password = ""; // Insira sua senha do banco de dados aqui
+$password = "";
 $dbname = "biblioteca";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
